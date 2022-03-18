@@ -33,3 +33,13 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:${{ env.TAG }}
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        uses: danielr1996/kubectl-action@1.0.0
+        name: Deploy
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          args: apply -f ../nginx-deploy.yaml
