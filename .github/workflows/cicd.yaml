@@ -27,20 +27,11 @@ jobs:
       -
         name: Check tag env
         run: echo ${{ env.TAG }}
+        run: echo ${{ GITHUB_REF_NAME }}
+        run: echo ${{ GITHUB_REF }}
       -
         name: Build and push
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:${{ env.TAG }}
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      -
-        uses: danielr1996/kubectl-action@1.0.0
-        name: Deploy
-        with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
-          args: apply -f ../nginx-deploy.yaml
