@@ -29,10 +29,21 @@ jobs:
         run: echo ${{ env.TAG }}
       -
         name: Check GITHUB REF NAME
-        run: echo xxx $GITHUB_REF_NAME \n ttt $GITHUB_REF
+        run: echo xxx $GITHUB_REF_NAME
       -
         name: Build and push
         uses: docker/build-push-action@v2 
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:${{ env.TAG }}
+
+  update_tag:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Set tag
+        run: echo "TAG=$GITHUB_SHA" >> $GITHUB_ENV
+    steps:
+      - name: condition 1
+        if: github.ref.name == 'dev'
+        run: echo "The operating system on the runner is $env:GITHUB_REF_NAME."
