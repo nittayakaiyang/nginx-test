@@ -41,8 +41,9 @@ jobs:
 #    needs: build
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Set tag
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set tag
         run: echo "TAG=$GITHUB_SHA" >> $GITHUB_ENV
       - name: Is dev ?
         if: github.ref_name == 'dev'
