@@ -10,4 +10,4 @@ resources:
 - ../base
 images:
 - name: boonkwang/nginx
-  newTag: 527208c87bf040d49a8ef25b6e0e61d845ef6e86
+  newTag: cdbaec29a84c557ff6d9a3d2de77f0a95fd506c7
