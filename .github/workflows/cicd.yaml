@@ -36,7 +36,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:${{ env.TAG }}
 
   update_tag:
-#    needs: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
