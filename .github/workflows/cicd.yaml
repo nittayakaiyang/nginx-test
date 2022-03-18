@@ -53,6 +53,7 @@ jobs:
         uses: imranismail/setup-kustomize@v1
       - name: Patch kustomize
         run: |
+          echo $DIR
           cd ${{ env.DIR }}
           kustomize edit set image boonkwang/nginx:${{ env.TAG }}
           cat kustomization.yaml
@@ -60,5 +61,5 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
-          branch: $GITHUB_REF_NAME
+          branch: ${{ github.ref_name }}
           message: "update image tag ${{ env.TAG }}"
