@@ -43,7 +43,6 @@ jobs:
       -
         name: Set tag
         run: echo "TAG=$GITHUB_SHA" >> $GITHUB_ENV
-    steps:
       - name: condition 1
         if: github.ref.name == 'dev'
         run: echo "The operating system on the runner is $env:GITHUB_REF_NAME."
