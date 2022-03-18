@@ -54,6 +54,7 @@ jobs:
         uses: imranismail/setup-kustomize@v1
       - name: Patch kustomize
         run: |
+          echo ${env.TAG}
           kustomize edit set image boonkwang/nginx:${env.TAG}
           cat kustomization.yml
           git add .
