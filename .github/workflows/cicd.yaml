@@ -51,8 +51,8 @@ jobs:
         if: github.ref_name == 'master'
         run: echo "DIR=deploy/master" >> $GITHUB_ENV
       - name: Setup Kustomize
-      - uses: imranismail/setup-kustomize@v1
-      - run: |
+        uses: imranismail/setup-kustomize@v1
+        run: |
           kustomize edit set image boonkwang/nginx:${env.TAG}
           cat kustomization.yml
           git add .
