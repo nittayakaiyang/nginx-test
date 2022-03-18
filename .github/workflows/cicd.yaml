@@ -34,7 +34,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:${{ env.TAG }}
 
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       -
