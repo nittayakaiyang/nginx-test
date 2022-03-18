@@ -60,5 +60,7 @@ jobs:
           cat kustomization.yaml
       - name: Commit kustomize & Push
         uses: action-js/push@master
+        with:
           github_token: ${{ secrets.REPO_TOKEN }}
+          branch:  ${{ github.ref_name }}
           message: "update image tag ${{ env.TAG }}"
