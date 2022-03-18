@@ -43,6 +43,10 @@ jobs:
       -
         name: Set tag
         run: echo "TAG=$GITHUB_SHA" >> $GITHUB_ENV
-      - name: condition 1
+      - name: Is dev ?
         if: github.ref_name == 'dev'
-        run: echo "The operating system on the runner is $env:GITHUB_REF_NAME."
+        run: echo "DIR=deploy/dev" >> $GITHUB_ENV
+      - name: Is master ?
+        if: github.ref_name == 'master'
+        run: echo "DIR=deploy/master" >> $GITHUB_ENV
+      
