@@ -54,8 +54,9 @@ jobs:
         uses: imranismail/setup-kustomize@v1
       - name: Patch kustomize
         run: |
+          cd ${{ env.DIR }}
           kustomize edit set image boonkwang/nginx:${{ env.TAG }}
-          cat ${{ env.DIR }}/kustomization.yaml
+          cat kustomization.yaml
           git add .
           git commit -m "Set `app` image tag to `${{ env.TAG }}`"
           git push
