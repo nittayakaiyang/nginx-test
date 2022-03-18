@@ -49,14 +49,13 @@ jobs:
         run: echo "DIR=deploy/dev" >> $GITHUB_ENV
       - name: Is master ?
         if: github.ref_name == 'master'
-        run: echo "DIR=deploy/master" >> $GITHUB_ENV
+        run: echo "=deploy/master" >> $GITHUB_ENV
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
       - name: Patch kustomize
         run: |
-          echo ${{ env.TAG }}
           kustomize edit set image boonkwang/nginx:${{ env.TAG }}
-          cat kustomization.yaml
+          cat $DIR/kustomization.yaml
           git add .
           git commit -m "Set `app` image tag to `${{ env.TAG }}`"
           git push
