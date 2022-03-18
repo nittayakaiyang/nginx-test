@@ -56,7 +56,7 @@ jobs:
         run: |
           echo ${{ env.TAG }}
           kustomize edit set image boonkwang/nginx:${{ env.TAG }}
-          cat kustomization.yml
+          cat kustomization.yaml
           git add .
           git commit -m "Set `app` image tag to `${{ env.TAG }}`"
           git push
