@@ -59,7 +59,7 @@ jobs:
           kustomize edit set image boonkwang/nginx:${{ env.TAG }}
           cat kustomization.yaml
       - name: Commit kustomize & Push
-        uses: action-js/push@master
+        uses: actions-js/push@master
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
           branch:  ${{ github.ref_name }}
