@@ -29,10 +29,10 @@ jobs:
         run: echo ${{ env.TAG }}
       -
         name: Check GITHUB REF NAME
-        run: echo ${{ GITHUB_REF_NAME }}
+        run: echo $GITHUB_REF_NAME
       -
         name: Check GITHUB REF
-        run: echo ${{ GITHUB_REF }}
+        run: echo $GITHUB_REF
       -
         name: Build and push
         uses: docker/build-push-action@v2
