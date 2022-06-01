@@ -48,7 +48,7 @@ jobs:
         run: echo "DIR=deploy/dev" >> $GITHUB_ENV
       - name: Is master ?
         if: github.ref_name == 'master'
-        run: echo "=deploy/master" >> $GITHUB_ENV
+        run: echo "DIR=deploy/master" >> $GITHUB_ENV
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
       - name: Patch kustomize
