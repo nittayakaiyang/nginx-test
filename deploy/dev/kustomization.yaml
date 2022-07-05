@@ -8,6 +8,3 @@ patchesStrategicMerge:
 namespace: dev
 resources:
 - ../base
-images:
-- name: boonkwang/nginx
-  newTag: e9851479faf022b82e03e82445eb134d1843bb79
