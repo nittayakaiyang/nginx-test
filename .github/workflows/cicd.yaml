@@ -70,8 +70,7 @@ jobs:
           git add .
           git commit -m "update manifesh"
           git push
-        secrets:
-          token: ${{ secrets.REPO_TOKEN }}
+
 
 #       - name: Commit kustomize & Push
 #         uses: actions-js/push@master
