@@ -61,8 +61,13 @@ jobs:
           cd ${{ env.DIR }}
           kustomize edit set image boonkwang/nginx:${{ env.TAG }}
           cat kustomization.yaml
-          
+
+      - uses: actions/checkout@v3
       - name: Push update manifesh to ArgoCD repo
+        with:
+          repository: 'nittayakaiyang/nginx-test'
+          token: ${{ secrets.REPO_TOKEN }}
+          ref: 'dev'
         run: |
           ls
           git config user.name github-actions
