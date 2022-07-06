@@ -43,6 +43,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.REPO_TOKEN }}
+          ref: 'dev'
       - name: Set tag
         run: echo "TAG=$GITHUB_SHA" >> $GITHUB_ENV
       - name: Is dev ?
@@ -68,8 +69,7 @@ jobs:
           git add .
           git commit -m "update manifesh"
           git push
-        with:
-          token: ${{ secrets.REPO_TOKEN }}
+
 #       - name: Commit kustomize & Push
 #         uses: actions-js/push@master
 #         with:
